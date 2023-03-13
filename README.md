@@ -24,9 +24,10 @@
 4) Acesse a pasta do projeto pela linha de comando: `cd {{seuWorkspace}}/produtos
 5) Inicie a aplicação
 
-## Configurando o projeto
+## Configurando o projeto -- 
 
 1) git clone https://github.com/Renan-Emori/spring-react
-2) Importe o projeto/pasta "front" em sua IDE
+2) Em uma nova janela, importe o projeto/pasta "front" em sua IDE
 3) Acesse a pasta do projeto pela linha de comando: 'cd {{seuWorkspace}}/react/front'
 4) Inicie a aplicação 'npm start'
+*o projeto "produtos" deve, necessariamente, estar rodando
