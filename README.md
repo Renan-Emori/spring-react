@@ -7,6 +7,7 @@
  
 -front: react 
 +  boostrap 
++  node.js
 
 ## Configurando o projeto
 
