@@ -1,5 +1,13 @@
-function Tabela({vetor, selecionar}){
+function Tabela({vetor, selecionar, mostrar, esconder, tabela}){
     return (
+        <div>
+       { 
+        tabela 
+        ?
+        <input type="button" value="Mostrar dados" onClick={esconder} className="btn btn-primary"/>
+        :
+        <>
+        <input type="button" value="Esconder dados" onClick={mostrar} className="btn btn-primary"/>
         <table className="table">
             <thead>
                 <tr>
@@ -9,18 +17,19 @@ function Tabela({vetor, selecionar}){
                     <th>Selecionar</th>
                 </tr>
             </thead>
-
-            <tbody>
+            <tbody>                   
                 {vetor.map((obj, indice) => (
                     <tr key={indice}>
                     <td>{indice+1}</td>
                     <td>{obj.nome}</td>
                     <td>{obj.marca}</td>
                     <td><button onClick={() => {selecionar(indice)}} className="btn btn-success">Selecionar</button></td>
-                </tr>
-                ))} 
+                    </tr>
+                ))}
             </tbody>
         </table>
+        </>}
+        </div>
     );
 }
 

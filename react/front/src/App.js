@@ -14,10 +14,12 @@ function App() {
 
   //useState
   const [btnCadastrar, setBtnCadastrar] = useState(true);
+  const [btnMostrar, setMostrar] = useState(true);
   const [produtos, setProdutos] = useState([]);
 
   const[objProduto, setObjProduto] = useState(produto);  
 
+  
   //useEffect
   useEffect(() => {
     fetch("http://localhost:8080/listar")
@@ -28,6 +30,14 @@ function App() {
   //Obtendo os dados do formulário
   const aoDigitar = (e) => {
     setObjProduto({...objProduto, [e.target.name]: e.target.value})
+  }
+
+  
+  //Limpar o formulário
+
+  const limparFormulario = () => {
+    setObjProduto(produto);
+    setBtnCadastrar(true)
   }
 
   //Cadastrar produtos
@@ -101,7 +111,7 @@ function App() {
         alert(retorno_convertido.mensagem)
       }else{
         //mensagem
-        alert("Produto cadastrado com sucesso");
+        alert("Produto alterado com sucesso");
 
         //Cópia do vetor produtos
         let vetorTemp = [...produtos];
@@ -124,17 +134,19 @@ function App() {
   }
 
 
-  //Limpar o formulário
-
-  const limparFormulario = () => {
-    setObjProduto(produto);
-    setBtnCadastrar(true)
-  }
 
   //Selecionar o produto
   const selecionarProduto = (indice) => {
     setObjProduto(produtos[indice]);
     setBtnCadastrar(false); 
+  }
+
+  //Mostrar/esconder o banco de dados
+  const mostrarTabela = () =>{
+    setMostrar(true)
+  }
+  const esconderTabela = () => {
+    setMostrar(false)
   }
 
 
@@ -148,7 +160,7 @@ function App() {
       remover={remover}
       alterar={alterar}
       />
-      <Tabela vetor={produtos} selecionar={selecionarProduto} />
+      <Tabela vetor={produtos} selecionar={selecionarProduto} tabela={btnMostrar} mostrar={mostrarTabela} esconder={esconderTabela}/>
     </div>
   );
 }
